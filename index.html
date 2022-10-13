@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./img/icon.png">
+        <title>Ming Li's Portfolio Website</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./data/projects.js"></script>
+        <script src="https://kit.fontawesome.com/40d2b73747.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js" integrity="sha512-Eenw6RBFiF4rO89LCaB5fkd4WXI4Y7GSRxrLMMWx73dZNcl+dBU3/pJtITD2gTCoEGIf/Ph3spwp0zZnF+UEJg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" integrity="sha512-tHvUcUQYi35zApvAa5TNR3fNhBQkVtkmWKfacnpxmix4/VTGz1lGjIVyLMp7gLgAvg+aKJjnVKokXJNS5GZ+/g==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="./js/script.js" defer></script>
+        <script src="./js/projects-grid.js" defer></script>
+        <script src="./js/particle-bg.js" defer></script>
+    </head>
+
+    <body>
+
+        <!-- BG color -->
+        <div class="background" aria-label="blue gradient background"></div>
+
+        <!-- Particle Bg -->
+        <canvas id="canvas1" aria-label="animated bubbles"></canvas>
+        
+        <!-- Intro -->
+        <section class="intro sections active" aria-label="Introduction">
+            <div class="intro-transition-left">
+                <!-- Intro before disappear -->
+                <h1 id="howdy">
+                    <span class="intro-title">Howdy</span>
+                </h1>
+    
+                <!-- My cow img -->
+                <picture class="intro-img-container">
+                    <img class="intro-img" src="./img/Cow-happy.png" alt="Happy Cow Image">
+                </picture>
+            </div>
+
+            <div class="intro-profile" aria-label="My name and job title">
+                <!-- Name -->
+                <h1>
+                    <span class="intro-profile-title">Ming Li</span>
+                </h1>
+                <!-- Job title -->
+                <h2>
+                    <span class="intro-profile-title">Front-end Developer</span>
+                </h2>
+            </div>
+
+            <!-- Scroll Down -->
+            <div class="scroll-down" aria-label="scroll down button">
+                <p>Scroll Down</p>
+                <i class="fa-solid fa-arrow-down-long"></i>
+            </div>
+        </section>
+
+        <section class="my-projects sections">
+            <h1 class="my-projects-title">
+                <span class="my-project-title">My Projects</span>
+            </h1>
+
+            <p class="my-projects-text">
+                <span class="my-project-title">
+                    Here are some of my recent works. You can find more <a href="https://github.com/Mingrkli" target="_blank">HERE</a>
+                </span>
+            </p>
+
+            <!-- My projects grid -->
+            <div class="my-projects-grid" aria-label="grid base for my projects">
+
+                <!-- projects-grid JS here -->
+
+            </div>
+
+            <!-- Project clicked card -->
+            <div class="card-container hidden">
+
+                <!-- projects-grid JS here -->
+
+            </div>
+        </section>
+
+        <!-- Gsap these section -->
+        <section class="about-me sections">
+            <h1>
+                <span>About Me</span>
+            </h1>
+            <p>
+                <span>
+                    Hello, I'm Ming Li, with 2+ years of Front-end coding experience. I love to work with companies and consumers to create websites for them. As I'm still a Junior coder, I'm always looking to collaborate with talented people if I have the chance as working and learning from them can increase my experience in this career and theirs as well.
+                </span>
+            </p>
+            <p>
+                <span>
+                    Interested in collaborating with me for internships or work? Here is my <a href="#">resume</a> in which you can find my contant information. Thank you for your time and maybe we'll get some pizza sometime.
+                </span>
+            </p>
+        </section>
+
+    </body>
+</html>
