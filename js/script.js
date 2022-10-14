@@ -1,5 +1,7 @@
 const sectionsForScroll = gsap.utils.toArray('.sections');
 
+/* Time line
+========================================================== */
 // Timeline Intro
 const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
 
@@ -15,8 +17,20 @@ const tlProjects = gsap.timeline({ defaults: { ease: "power1.out" } });
 
 tlProjects.to(".my-project-title", {y: "0", duration: 1, delay: .5});
 
+// Timeline About Me
+const tlAboutMe = gsap.timeline({ defaults: { ease: "power1.out" } });
 
-// Page Loads
+tlAboutMe.to(".about-me-text", {y: "0", duration: 1, delay: .5, stagger: .5});
+tlAboutMe.to(".about-me-quote", {opacity: 1, duration: 1}, "-=.1");
+
+// Timeline Comments
+const tlComments = gsap.timeline({ defaults: { ease: "power1.out" } });
+
+tlComments.to(".comments-title", {y: "0", duration: 1});
+tlComments.to(".card", {opacity: 1, duration: 1, stagger: 0.1}, "-=1");
+
+/* Page Laods
+========================================================== */
 let currentActive;
 const beenHere = localStorage.getItem("mingrkliBeenHere");
 
@@ -42,11 +56,10 @@ window.addEventListener("DOMContentLoaded", () => {
         gsap.to(window, {duration: 1, scrollTo: sectionsForScroll[currentActive], ease: "power1"});
 
     }
-
-    // Show background particles canvas
-    gsap.fromTo("#canvas1", {opacity: "0"}, {opacity: "1", duration: 10, delay: 2.5});  
 })
 
+/* Scrolling Detect
+========================================================== */
 // When user scrolls, move to different sections
 let isScrolling = 0;
 
@@ -98,12 +111,16 @@ window.addEventListener('wheel', (e) => {
 
 });
 
+/* Scrolling functions
+========================================================== */
 // translates Y the sections to which active section it is
 function scrollToActive(currentActive) {
     const tlReverse = gsap.timeline({ defaults: { ease: "power1.out" } });
 
     tl.reverse(2.5);
     tlProjects.reverse(1);
+    tlAboutMe.reverse(2);
+    tlComments.reverse(0.5);
 
     tlReverse.to(window, {duration: 1, scrollTo: sectionsForScroll[currentActive], ease: "power1", delay: .5 });
 }
@@ -117,12 +134,67 @@ sectionsForScroll.forEach(section => {
         onEnter: () => {
             tl.play();
             tlProjects.play();
+            tlAboutMe.play();
+            tlComments.play();
         },
         onEnterBack: () => {
             tl.play();
             tlProjects.play();
+            tlAboutMe.play();
+            tlComments.play();
         },
         // onLeave: () => tl.pause(),
         // onLeaveBack: () => tl.restart(),
     })
+});
+
+/* Navigation
+========================================================== */
+// Small screen size menu
+let menu = document.querySelector('.navigation i');
+
+// Shows the menu options when click menu icon
+menu.addEventListener('click', () => {
+    menu.toggleAttribute("data-selected");
 })
+
+// User navigation click
+let navBtns = document.querySelectorAll('nav button');
+
+for (let i = 0; i < navBtns.length; i++) {    
+    // When user click nav btn
+    navBtns[i].addEventListener('click', () => {
+        // hides the menu options
+        menu.removeAttribute('data-selected');
+
+        // Save the currentActive to the btn value of the user clicked
+        let currentActive = navBtns[i].value;
+        let lastActive;
+        let count = 0;
+
+        // Removes active on each section
+        sectionsForScroll.forEach(section => {
+            if (section.classList.contains('active')) {
+                lastActive = count;
+            }
+
+            section.classList.remove('active');
+            count++;
+        })
+
+        // Adds active class to user nav value
+        sectionsForScroll[currentActive].classList.add('active');
+        // Saves it to localStorage
+        localStorage.setItem('MingrkliCurrentActive', currentActive);
+        // Scrolls to active
+        scrollToActive(currentActive);
+
+        // int and string however that will work with == in JavaScript
+        if (lastActive == currentActive) {
+            tl.play();
+            tlProjects.play();
+            tlAboutMe.play();
+            tlComments.play();
+        }
+    })
+}
