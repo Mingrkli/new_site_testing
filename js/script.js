@@ -64,9 +64,6 @@ window.addEventListener("DOMContentLoaded", () => {
 let isScrolling = 0;
 
 window.addEventListener('wheel', (e) => {    
-    // Removes the howdy
-    document.getElementById('howdy').innerText = '';
-
     // Current page section
     let currentActive;
 
@@ -109,6 +106,64 @@ window.addEventListener('wheel', (e) => {
         }, 2000)
     }
 
+});
+
+
+/* Phone Scrolling Detect
+========================================================== */
+let touchPos;
+
+// store the touching position at the start of each touch
+window.addEventListener('touchstart', (e) => {
+    touchPos = e.changedTouches[0].clientY;
+})
+
+// detect wether the "old" touchPos is 
+// greater or smaller than the newTouchPos
+window.addEventListener('touchmove', (e) => {
+    // Current page section
+    let currentActive;
+    // Current touchPos
+    let newTouchPos = e.changedTouches[0].clientY;
+
+    if (isScrolling === 0) {
+        // Saves current section with active class to currentActive variable
+        for (let i = 0; i < sectionsForScroll.length; i ++) {
+            if (sectionsForScroll[i].classList.contains('active')) {
+                currentActive = i;
+            }
+        }
+    
+        // Phone Scroll Up moves Section Down
+        if (newTouchPos < touchPos) {
+            // If not last section
+            if (currentActive !== sectionsForScroll.length - 1) {
+                isScrolling = 1;
+                sectionsForScroll[currentActive].classList.remove('active');
+                sectionsForScroll[currentActive + 1].classList.add('active');
+                currentActive += 1;
+                scrollToActive(currentActive)
+                localStorage.setItem('MingrkliCurrentActive', currentActive);
+            }
+        
+        }
+        // Phone Scroll Down moves Section Up
+        else if (newTouchPos > touchPos) {
+        // If not first section
+            if (currentActive !== 0) {
+                isScrolling = 1;
+                sectionsForScroll[currentActive].classList.remove('active');
+                sectionsForScroll[currentActive - 1].classList.add('active');
+                currentActive -= 1;
+                scrollToActive(currentActive);
+                localStorage.setItem('MingrkliCurrentActive', currentActive);
+            }
+        }
+
+        setTimeout(() => {
+            isScrolling = 0;
+        }, 2000)
+    }
 });
 
 /* Scrolling functions
