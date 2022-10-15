@@ -84,6 +84,14 @@ img, picture, svg {
     }
 }
 
+/* Height */
+@media screen and (max-height: 800px) {
+    #canvas1 {
+        display: none;
+    }
+}
+
+
 /* Nav
 ========================================================================================== */
 .navigation {
@@ -160,6 +168,66 @@ img, picture, svg {
 
     .navigation i[data-selected] ~ button {
         display: block;
+    }
+}
+
+/* Height */
+@media screen and (max-height: 600px) and (max-width: 915px) {
+    .navigation {
+        right: 50%;
+        transform: translateX(50%);
+        margin: 0;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+
+        width: 100%;
+    }
+
+    .navigation button {
+        display: none;
+
+        width: 100%;
+
+        font-size: 4rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 0;
+    }
+
+    .navigation i {
+        display: block;
+    }
+
+    .navigation i[data-selected] ~ button {
+        display: block;
+    }
+}
+
+@media screen and (max-height: 450px) and (max-width: 915px) {
+    .navigation {
+        align-items: flex-start;
+
+        right: 0;
+        left: 0;
+        transform: translateX(0);
+
+        width: 100px;
+    }
+
+    .navigation button {
+        display: none;
+
+        width: 100%;
+
+        font-size: 3rem;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 0;
+    }
+
+    .navigation i[data-selected] ~ button {
+        width: 400px;
     }
 }
 
@@ -297,6 +365,41 @@ section {
     .intro .scroll-down p {
         letter-spacing: 5px;
     }
+
+    .scroll-down {
+        left: 0;
+    }
+}
+
+/* Height */
+@media screen and (max-height: 860px) and (max-width: 915px) {
+    .intro picture {
+        max-width: 400px;
+    }
+}
+
+@media screen and (max-height: 800px) and (max-width: 915px) {
+    .intro picture {
+        max-width: 200px;
+    }
+
+    .intro-profile {
+        top: 65%;
+    }
+}
+
+@media screen and (max-height: 600px) and (max-width: 915px) {
+    .intro-title {
+        font-size: 3rem;
+    }
+
+    .intro-profile h1 {
+        line-height: 4rem;
+    }
+
+    .intro .scroll-down {
+        left: 20%;
+    }
 }
 
 /* My Projects Section
@@ -336,6 +439,32 @@ section {
 @media screen and (max-width: 460px) {
     .my-projects h1 {
         font-size: 3rem;
+    }
+}
+
+/* Height */
+@media screen and (max-height: 600px) and (max-width: 915px) {
+    .my-projects h1 {
+        font-size: 4rem;
+    }  
+
+    .my-projects p {
+        margin: 0.5rem;
+    }
+}
+
+@media screen and (max-height: 580px) and (max-width: 915px) {
+    .my-projects {
+        height: 100%;
+    }
+
+    .my-projects h1 {
+        font-size: 2rem;
+    }  
+
+    .my-projects p {
+        margin: 0;
+        font-size: 1.5rem;
     }
 }
 
@@ -464,6 +593,28 @@ section {
     }
 }
 
+/* Height */
+@media screen and (max-height: 600px) and (max-width: 915px) {
+    .my-projects-grid {
+        gap: 1rem;
+    }
+
+    .project {
+        width: 160px;
+
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-height: 530px) and (max-width: 915px) {
+    .my-projects-grid {
+        gap: 0.1rem;
+    }
+
+    .project {
+        width: 140px;
+    }
+}
 
 /* Card Container
 ========================================================================================== */
@@ -701,6 +852,21 @@ section {
     }
 }
 
+/* Height */
+@media screen and (max-height: 660px) and (max-width: 915px) {
+    .about-me h1 {
+        font-size: 4rem;
+    }
+
+    .about-me p {
+        margin-bottom: 1rem;
+        max-width: 1200px;
+        width: 100%;
+    
+        font-size: 1.5rem;
+    }
+}
+
 /* Comments
 ========================================================================================== */
 .comments {
@@ -795,5 +961,44 @@ section {
 
     .card p {
         font-size: 1rem;
+    }
+}
+
+/* Height */
+@media screen and (max-height: 1130px) and (max-width: 915px) {
+    .comments-grid-container .card {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-height: 1000px) and (max-width: 915px) {
+    .comments-grid-container .card {
+        padding: 0;
+    }
+}
+
+@media screen and (max-height: 900px) and (max-width: 915px) {
+    .comments-grid-container {
+        flex-direction: row;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-height: 600px) and (max-width: 915px) {
+    .comments-title {
+        font-size: 3rem;
+    }
+
+    .card p {
+        padding: 0;
+    }
+}
+
+@media screen and (max-height: 500px) and (max-width: 915px) {
+    .comments h1 {
+        display: none;
     }
 }
