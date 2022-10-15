@@ -245,6 +245,14 @@ section {
     transition: 1s ease-in-out;
 }
 
+/* For firefox, for some reason the firefox version of fill-available didn't work  */
+@supports (-moz-appearance:none) {
+    section {
+        width: 100%;
+        min-height: 100vh;
+    }
+}
+
 /* Intro Section
 ========================================================================================== */
 .intro {

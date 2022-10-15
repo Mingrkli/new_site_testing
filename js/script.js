@@ -103,7 +103,7 @@ window.addEventListener('wheel', (e) => {
 
         setTimeout(() => {
             isScrolling = 0;
-        }, 2000)
+        }, 1000)
     }
 
 });
@@ -162,7 +162,7 @@ window.addEventListener('touchmove', (e) => {
 
         setTimeout(() => {
             isScrolling = 0;
-        }, 2000)
+        }, 1000)
     }
 });
 
